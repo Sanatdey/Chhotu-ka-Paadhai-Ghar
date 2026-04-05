@@ -10,7 +10,7 @@ export default function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    class: "",
+    className: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
@@ -49,7 +49,7 @@ export default function Register() {
       }
 
       setSuccess(true);
-      setFormData({ name: "", email: "", class: "", password: "" });
+      setFormData({ name: "", email: "", className: "", password: "" });
       
       // Redirect to login after 2 seconds
       setTimeout(() => {
@@ -175,8 +175,8 @@ export default function Register() {
                 Select Class
               </label>
               <select
-                name="class"
-                value={formData.class}
+                name="className"
+                value={formData.className}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/50 border border-purple-200/50 focus:border-blue-500 focus:bg-white/80 outline-none transition-all font-medium text-gray-700"
                 required

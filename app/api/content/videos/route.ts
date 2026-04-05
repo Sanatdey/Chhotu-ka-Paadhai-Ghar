@@ -1,19 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/app/lib/prisma";
 
-declare global {
-  var prisma: any | undefined;
-}
-
-const prisma =
-  global.prisma ||
-  new PrismaClient({
-    log: ["error"],
-  });
-
-if (process.env.NODE_ENV !== "production") {
-  global.prisma = prisma;
-}
 
 // GET all videos
 export async function GET() {
@@ -51,7 +38,7 @@ export async function POST(request: NextRequest) {
         subject,
         difficultyLevel,
         url,
-        class : body.class || "1",
+        className : body.className || "1",
         remark: remark || null,
       },
     });
@@ -86,7 +73,7 @@ export async function PUT(request: NextRequest) {
         subject,
         difficultyLevel,
         url,
-        class : body.class || "1",
+        className : body.className || "1",
         remark: remark || null,
       },
     });

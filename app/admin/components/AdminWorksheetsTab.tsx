@@ -9,7 +9,7 @@ type Worksheet = {
   id?: number;
   title: string;
   description?: string;
-  class: 1|2|3;
+  className: 1|2|3;
   subject: "maths" | "english" | "evs";
   difficultyLevel: "easy" | "medium" | "hard";
   pdfUrl: string;
@@ -33,7 +33,7 @@ export default function AdminWorksheetsTab() {
     solutionVideoUrl: "",
     questions: [],
     remark: "",
-    class: 1
+    className: 1
   });
   const [questionsJson, setQuestionsJson] = useState<string>("[]");
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -177,7 +177,7 @@ export default function AdminWorksheetsTab() {
       solutionVideoUrl: "",
       questions: [],
       remark: "",
-      class: 1
+      className: 1
     });
     setQuestionsJson("[]");
     setEditingId(null);
@@ -249,8 +249,8 @@ export default function AdminWorksheetsTab() {
               </select>
 
               <select
-                value={formData.class}
-                onChange={(e) => setFormData({ ...formData, class: e.target.value as any })}
+                value={formData.className}
+                onChange={(e) => setFormData({ ...formData, className: e.target.value as any })}
                 className="px-4 py-2 border border-purple-300 rounded-lg focus:outline-none focus:border-purple-600"
               >
                 <option value={"1"}>📚 Class 1</option>

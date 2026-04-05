@@ -11,7 +11,7 @@ type Worksheet = {
   subject: string;
   difficultyLevel: string;
   pdfUrl: string;
-  class : string;
+  className: string;
   solutionVideoUrl?: string;
 };
 
@@ -55,7 +55,7 @@ export default function WorksheetSection({
       }
       if(userClass) {
         filtered = filtered.filter((worksheet: Worksheet) => 
-          worksheet.class === userClass.replaceAll("class", "")
+          worksheet.className === userClass.replaceAll("class", "")
         );
       }
       

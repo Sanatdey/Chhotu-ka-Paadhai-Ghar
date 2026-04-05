@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { prisma } from "@/app/lib/prisma";
 
-declare global {
-  var prisma: any | undefined;
-}
-
-const prisma = global.prisma || require("@prisma/client").PrismaClient;
-
-if (process.env.NODE_ENV !== "production") {
-  global.prisma = prisma;
-}
-
-const prismaClient = new prisma.PrismaClient({ log: ["error"] });
+const prismaClient = prisma;
 
 export async function POST(
   request: NextRequest,
@@ -38,7 +29,7 @@ export async function POST(
         id: true,
         name: true,
         email: true,
-        class: true,
+        className: true,
         isAdmin: true,
       },
     });

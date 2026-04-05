@@ -264,9 +264,9 @@ export default function Dashboard() {
           transition={{ duration: 0.3 }}
           className="bg-white/40 backdrop-blur-xl rounded-2xl border border-white/50 p-6 sm:p-8 shadow-lg"
         >
-          {activeTab === "videos" && <VideosSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.class}/>}
-          {activeTab === "solutions" && <SolutionsSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.class} />}
-          {activeTab === "worksheet" && <WorksheetSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.class} />}
+          {activeTab === "videos" && <VideosSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.className}/>}
+          {activeTab === "solutions" && <SolutionsSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.className} />}
+          {activeTab === "worksheet" && <WorksheetSection selectedSubject={selectedSubject} selectedDifficulty={selectedDifficulty} searchQuery={searchQuery} userClass={user?.className} />}
         </motion.div>
       </div>
 

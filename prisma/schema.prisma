@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
 }
 
 datasource db {
@@ -15,7 +16,7 @@ model User {
   name      String
   email     String  @unique
   password  String
-  class     String  // class1, class2, or class3
+  className     String  // className1, className2, or className3
   isAdmin   Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -28,7 +29,7 @@ model Video {
   difficultyLevel String // easy, medium, hard
   url           String
   remark        String?
-  class         String?
+  className         String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -40,7 +41,7 @@ model Solution {
   difficultyLevel String // easy, medium, hard
   url           String
   remark        String?
-  class         String?
+  className         String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -55,7 +56,7 @@ model Worksheet {
   solutionVideoUrl String? // Optional YouTube URL for solution video
   questions     Json?   // JSON blob: array of {id, question, answer, type}
   remark        String?
-  class         String?
+  className         String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

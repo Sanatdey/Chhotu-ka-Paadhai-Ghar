@@ -1,19 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/app/lib/prisma";
 
-declare global {
-  var prisma: any | undefined;
-}
-
-const prisma =
-  global.prisma ||
-  new PrismaClient({
-    log: ["error"],
-  });
-
-if (process.env.NODE_ENV !== "production") {
-  global.prisma = prisma;
-}
 
 // GET all worksheets
 export async function GET() {
@@ -47,7 +34,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { title, description, subject,  difficultyLevel, pdfUrl, solutionVideoUrl, questions, remark, json } = body;
-    const myClass = (body.class); // 'class' is a reserved keyword, so we use 'myClass' to avoid conflicts
+    const myClass = (body.className); // 'class' is a reserved keyword, so we use 'myClass' to avoid conflicts
     // Validate required fields
     if (!title || !subject || !difficultyLevel || !pdfUrl) {
       return NextResponse.json(
@@ -66,7 +53,7 @@ export async function POST(request: NextRequest) {
         solutionVideoUrl: solutionVideoUrl || null,
         questions: json && json.questions ? json : null,
         remark: remark || null,
-        class :  myClass || "1",
+        className :  myClass || "1",
       },
     });
 
@@ -87,7 +74,7 @@ export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
     const { id, title, description, subject, difficultyLevel, pdfUrl, solutionVideoUrl, questions,json, remark } = body;
-    const myClass = (body.class); // 'class' is a reserved keyword, so we use 'myClass' to avoid conflicts
+    const myClass = (body.className); // 'class' is a reserved keyword, so we use 'myClass' to avoid conflicts
 
     if (!id) {
       return NextResponse.json(
@@ -107,7 +94,7 @@ export async function PUT(request: NextRequest) {
         solutionVideoUrl: solutionVideoUrl || null,
         questions: json && json.questions ? json : null,
         remark: remark || null,
-        class : myClass || null,
+        className : myClass || null,
       },
     });
 

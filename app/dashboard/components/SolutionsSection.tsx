@@ -10,7 +10,7 @@ type Solution = {
   subject: string;
   difficultyLevel: string;
   url: string;
-  class: string;
+  className: string;
   remark?: string;
 };
 
@@ -54,7 +54,7 @@ export default function SolutionsSection({
 
         if(userClass) {
         filtered = filtered.filter((solution: Solution) => 
-          solution.class === userClass.replaceAll("class", "")
+          solution.className === userClass.replaceAll("class", "")
         );
       }
       

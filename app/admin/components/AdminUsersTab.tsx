@@ -7,7 +7,7 @@ type AdminUser = {
   id: number;
   name: string;
   email: string;
-  class: string;
+  className: string;
   isAdmin: boolean;
   createdAt: string;
   updatedAt: string;
@@ -20,7 +20,7 @@ export default function AdminUsersTab() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    class: "class1",
+    className: "class1",
   });
   const [passwordReset, setPasswordReset] = useState<{
     userId: number | null;
@@ -51,7 +51,7 @@ export default function AdminUsersTab() {
     setFormData({
       name: user.name,
       email: user.email,
-      class: user.class,
+      className: user.className,
     });
     setEditingId(user.id);
   };
@@ -74,7 +74,7 @@ export default function AdminUsersTab() {
         setMessage("✅ User updated successfully");
         fetchUsers();
         setEditingId(null);
-        setFormData({ name: "", email: "", class: "class1" });
+        setFormData({ name: "", email: "", className: "class1" });
         setTimeout(() => setMessage(""), 3000);
       }
     } catch (error) {
@@ -167,7 +167,7 @@ export default function AdminUsersTab() {
                   <h3 className="font-bold text-lg text-gray-800">{user.name}</h3>
                   <p className="text-sm text-gray-600">📧 {user.email}</p>
                   <p className="text-sm text-gray-600">
-                    📚 {user.class} {user.isAdmin && "| 👑 Admin"}
+                    📚 {user.className} {user.isAdmin && "| 👑 Admin"}
                   </p>
                   <p className="text-xs text-gray-500 mt-2">
                     Joined: {new Date(user.createdAt).toLocaleDateString()}
@@ -220,9 +220,9 @@ export default function AdminUsersTab() {
                       className="px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:border-purple-600"
                     />
                     <select
-                      value={formData.class}
+                      value={formData.className}
                       onChange={(e) =>
-                        setFormData({ ...formData, class: e.target.value })
+                        setFormData({ ...formData, className: e.target.value })
                       }
                       className="px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:border-purple-600"
                     >

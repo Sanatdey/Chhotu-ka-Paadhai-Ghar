@@ -1,19 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-declare global {
-  var prisma: any | undefined;
-}
-
-const prisma =
-  global.prisma ||
-  new PrismaClient({
-    log: ["error"],
-  });
-
-if (process.env.NODE_ENV !== "production") {
-  global.prisma = prisma;
-}
+import { prisma } from "@/app/lib/prisma";
 
 // GET all solutions
 export async function GET() {
@@ -52,7 +38,7 @@ export async function POST(request: NextRequest) {
         difficultyLevel,
         url,
         remark: remark || null,
-        class: body.class || "1",
+        className: body.className || "1",
       },
     });
 
@@ -87,7 +73,7 @@ export async function PUT(request: NextRequest) {
         difficultyLevel,
         url,
         remark: remark || null,
-        class: body.class || "1",
+        className: body.className || "1",
       },
     });
 

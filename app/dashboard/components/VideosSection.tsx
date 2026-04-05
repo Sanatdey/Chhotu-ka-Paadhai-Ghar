@@ -10,7 +10,7 @@ type Video = {
   subject: string;
   difficultyLevel: string;
   url: string;
-  class: string;
+  className: string;
 };
 
 export default function VideosSection({ 
@@ -53,7 +53,7 @@ export default function VideosSection({
 
       if(userClass) {
         filtered = filtered.filter((video: Video) => 
-          video.class === userClass.replaceAll("class", "")
+          video.className === userClass.replaceAll("class", "")
         );
       }
       

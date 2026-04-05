@@ -9,7 +9,7 @@ type Video = {
   subject: "maths" | "english" | "evs";
   difficultyLevel: "easy" | "medium" | "hard";
   url: string;
-  class : "1" | "2" |"3";
+  className : "1" | "2" |"3";
   remark?: string;
 };
 
@@ -23,7 +23,7 @@ export default function AdminVideosTab() {
     difficultyLevel: "easy",
     url: "",
     remark: "",
-    class : "1",
+    className : "1",
   });
   const [editingId, setEditingId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
@@ -104,7 +104,7 @@ export default function AdminVideosTab() {
       difficultyLevel: "easy",
       url: "",
       remark: "",
-        class : "1",
+        className : "1",
     });
     setEditingId(null);
     setShowForm(false);
@@ -159,8 +159,8 @@ export default function AdminVideosTab() {
                 <option value="hard">⭐⭐⭐ Hard</option>
               </select>
               <select
-                value={formData.class}
-                onChange={(e) => setFormData({ ...formData, class: e.target.value as any })}
+                value={formData.className}
+                onChange={(e) => setFormData({ ...formData, className: e.target.value as any })}
                 className="px-4 py-2 border border-purple-300 rounded-lg focus:outline-none focus:border-purple-600"
               >
                 <option value={"1"}>📚 Class 1</option>
