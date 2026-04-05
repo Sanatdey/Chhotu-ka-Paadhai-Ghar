@@ -15,10 +15,11 @@ const prismaClient = new prisma.PrismaClient({ log: ["error"] });
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const { newPassword } = await request.json();
+    const params = await context.params;
     const userId = parseInt(params.id);
 
     if (!newPassword || newPassword.length < 6) {

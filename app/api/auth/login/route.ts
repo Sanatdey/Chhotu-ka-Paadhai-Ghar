@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 
 declare global {
-  var prisma: PrismaClient | undefined;
+  var prisma: any | undefined;
 }
 
 const prisma =
