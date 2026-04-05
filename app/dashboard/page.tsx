@@ -35,6 +35,7 @@ export default function Dashboard() {
     }
     setUser(JSON.parse(userData));
     setLoading(false);
+    console.log("User data loaded:", JSON.parse(userData)); // Debug log
   }, []);
 
   const handleLogout = () => {
@@ -96,7 +97,7 @@ export default function Dashboard() {
               <h2 className="text-base font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
                 {user?.name}
               </h2>
-              <span className="text-xs font-bold text-purple-600">| 📚 {user?.class?.slice(-1) || "1"}</span>
+              <span className="text-xs font-bold text-purple-600">| 📚 {user?.className?.slice(-1) || "1"}</span>
             </div>
 
             {/* Desktop: Name and Class with divider and badge */}
@@ -120,7 +121,7 @@ export default function Dashboard() {
                 className="flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 backdrop-blur-sm px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-purple-200/60"
               >
                 <span className="text-lg">📚</span>
-                <span className="font-bold text-sm sm:text-base text-gray-800">Class {user?.class?.slice(-1) || "1"}</span>
+                <span className="font-bold text-sm sm:text-base text-gray-800">Class {user?.className?.slice(-1) || "1"}</span>
                 {user?.isAdmin && (
                   <>
                     <span className="text-xs opacity-70">•</span>

@@ -41,6 +41,8 @@ export default function WorksheetSection({
       const data = await res.json();
       // Ensure data is an array
       const worksheetArray = Array.isArray(data) ? data : [];
+
+      console.log("Fetched worksheets:", worksheetArray); // Debug log
       
       // Filter by selected subject
       let filtered = selectedSubject === "all"
@@ -67,6 +69,8 @@ export default function WorksheetSection({
       }
       
       setWorksheets(filtered);
+
+      console.log("Filtered worksheets:", filtered); // Debug log
     } catch (error) {
       console.error("Failed to fetch worksheets:", error);
       setWorksheets([]);
