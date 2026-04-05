@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  name      String
+  email     String  @unique
+  password  String
+  class     String  // class1, class2, or class3
+  isAdmin   Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Video {
+  id            Int     @id @default(autoincrement())
+  title         String
+  subject       String  // maths, english, evs
+  difficultyLevel String // easy, medium, hard
+  url           String
+  remark        String?
+  class         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Solution {
+  id            Int     @id @default(autoincrement())
+  title         String
+  subject       String  // maths, english, evs
+  difficultyLevel String // easy, medium, hard
+  url           String
+  remark        String?
+  class         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Worksheet {
+  id            Int     @id @default(autoincrement())
+  title         String
+  description   String? // Description of the worksheet
+  subject       String  // maths, english, evs
+  difficultyLevel String // easy, medium, hard
+  pdfUrl        String
+  solutionVideoUrl String? // Optional YouTube URL for solution video
+  questions     Json?   // JSON blob: array of {id, question, answer, type}
+  remark        String?
+  class         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
