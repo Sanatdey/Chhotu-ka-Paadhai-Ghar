@@ -9,7 +9,7 @@ type Worksheet = {
   id?: number;
   title: string;
   description?: string;
-  className: 1|2|3;
+  className: "1"|"2"|"3";
   subject: "maths" | "english" | "evs";
   difficultyLevel: "easy" | "medium" | "hard";
   pdfUrl: string;
@@ -33,7 +33,7 @@ export default function AdminWorksheetsTab() {
     solutionVideoUrl: "",
     questions: [],
     remark: "",
-    className: 1
+    className: "1"
   });
   const [questionsJson, setQuestionsJson] = useState<string>("[]");
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -177,7 +177,7 @@ export default function AdminWorksheetsTab() {
       solutionVideoUrl: "",
       questions: [],
       remark: "",
-      className: 1
+      className: "1"
     });
     setQuestionsJson("[]");
     setEditingId(null);
